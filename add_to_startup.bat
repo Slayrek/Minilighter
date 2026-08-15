@@ -7,5 +7,5 @@ if not exist "%EXE_PATH%" (
 )
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Minilighter" /t REG_SZ /d "\"%EXE_PATH%\"" /f
 echo.
-echo Minilighter added to startup!
+echo Minilighter successfully added to startup!
 pause

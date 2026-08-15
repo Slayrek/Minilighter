@@ -1,44 +1,44 @@
 # Minilighter
 
-Minilighter — це невелика програма для створення області виділення на екрані під час презентацій або демонстрацій (подібно до інструменту "Ножиці" у Windows, але без збереження скріншоту). Дозволяє виділити область пунктирною рамкою, залишаючи решту екрану затемненою.
+Minilighter is a lightweight screen highlighting utility designed for presentations or screen sharing. It works similarly to the Windows Snipping Tool, but instead of taking a screenshot, it creates a dashed border around the selected area while dimming the rest of the screen.
 
-## Особливості
+## Features
 
-- **Глобальний шорткат:** Швидко викликайте програму з будь-якого місця (за замовчуванням `Alt+Shift+H`).
-- **Два режими поведінки:**
-  - *Fade out:* Область зникає автоматично через вказаний час.
-  - *Persist:* Область залишається на екрані (пропускаючи кліки миші), поки ви не натиснете `Esc`.
-- **Налаштування:** Зручне вікно налаштувань, доступне через системний трей.
-- **Автозавантаження:** У комплекті йдуть скрипти для легкого додавання та видалення програми з автозавантаження Windows.
+- **Global Shortcut:** Quickly trigger the highlight overlay from anywhere (default `Alt+Shift+H`).
+- **Two Behavior Modes:**
+  - *Fade out:* The highlighted area disappears automatically after a specified time.
+  - *Persist:* The highlighted area stays on the screen (allowing mouse clicks to pass through) until you press `Esc`.
+- **Settings:** An easy-to-use settings dialog accessible via the system tray.
+- **Startup Integration:** Includes simple scripts to add or remove the application from Windows startup.
 
-## Встановлення (для користувачів)
+## Installation (For Users)
 
-1. Завантажте `Minilighter.exe` (з релізу або зібраний самостійно).
-2. Запустіть файл `Minilighter.exe`. Програма з'явиться у системному треї.
-3. Щоб додати програму в автозавантаження, запустіть `add_to_startup.bat`.
-4. Щоб прибрати з автозавантаження, запустіть `remove_from_startup.bat`.
+1. Download `Minilighter.exe` (from releases or build it yourself).
+2. Run `Minilighter.exe`. The application icon will appear in your system tray.
+3. To add the application to Windows startup, run `add_to_startup.bat`.
+4. To remove it from startup, run `remove_from_startup.bat`.
 
-## Збірка з вихідного коду
+## Building from Source
 
-Вам знадобиться Python 3 та встановлені залежності:
+You will need Python 3 and the following dependencies:
 
 ```bash
 pip install PyQt5 keyboard pyinstaller
 ```
 
-Для створення виконуваного файлу `.exe`:
+To build the standalone `.exe` file:
 
 ```bash
 pyinstaller --noconsole --onefile --name Minilighter main.py
 ```
 
-Виконуваний файл буде знаходитися у папці `dist/`.
+The executable will be located in the `dist/` folder.
 
-## Використання
+## Usage
 
-1. Запустіть програму.
-2. Натисніть шорткат (за замовчуванням `Alt+Shift+H`).
-3. Виділіть область на екрані, затиснувши ліву кнопку миші.
-4. Після відпускання кнопки миші, область залишиться підсвіченою відповідно до ваших налаштувань.
-5. Для дострокового закриття підсвічування натисніть клавішу `Esc`.
-6. Налаштування (шорткат, час зникнення та режим) можна змінити, натиснувши правою кнопкою миші на іконку в системному треї та вибравши "Settings".
+1. Run the application.
+2. Press the global shortcut (default `Alt+Shift+H`).
+3. Click and drag your left mouse button to highlight an area on the screen.
+4. Release the mouse button. The area will stay highlighted based on your behavior settings.
+5. To close the highlight manually at any time, press the `Esc` key.
+6. To configure the shortcut, timeout, or behavior, right-click the yellow icon in the system tray and select **Settings**.
