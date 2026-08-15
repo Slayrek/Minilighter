@@ -15,7 +15,7 @@ class AppController(QObject):
     def __init__(self):
         super().__init__()
         self.config = config_mgr.load_config()
-        self.app = QApplication(sys.sys.argv)
+        self.app = QApplication(sys.argv)
         self.app.setQuitOnLastWindowClosed(False)
         
         self.overlay = None
