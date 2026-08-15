@@ -9,6 +9,16 @@ import config_mgr
 from settings_ui import SettingsDialog
 from overlay_ui import OverlayWidget
 
+import os
+
+def get_resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 class AppController(QObject):
     show_overlay_signal = pyqtSignal()
 
@@ -27,7 +37,11 @@ class AppController(QObject):
         self.register_hotkey()
 
     def create_icon(self):
-        # Create a simple icon programmatically
+        icon_path = get_resource_path("icon.png")
+        if os.path.exists(icon_path):
+            return QIcon(icon_path)
+            
+        # Fallback simple icon
         pixmap = QPixmap(64, 64)
         pixmap.fill(QColor("transparent"))
         painter = QPainter(pixmap)
