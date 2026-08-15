@@ -68,7 +68,10 @@ class AppController(QObject):
     def show_overlay(self):
         # Close existing overlay if any
         if self.overlay:
-            self.overlay.close()
+            try:
+                self.overlay.close()
+            except Exception:
+                pass
             self.overlay = None
             
         self.overlay = OverlayWidget(self.config)

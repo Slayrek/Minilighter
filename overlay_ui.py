@@ -55,19 +55,8 @@ class OverlayWidget(QWidget):
             self.is_finished = True
             self.update()
             
-            # Start timer if behavior is fade
-            if self.config.get('behavior', 'fade') == 'fade':
-                timeout_ms = int(self.config.get('fade_timeout', 3.0) * 1000)
-                self.fade_timer.start(timeout_ms)
-                
-            # If persist, we change the flags to allow clicks to pass through if needed.
-            # But the user might want to click through the highlight.
-            # To click through, we'd need to set Qt.WindowTransparentForInput, 
-            # but then we can't catch Esc key. 
-            # We'll just keep it catching inputs so Esc can close it, or we can use the global hotkey to close.
-            # Actually, if they want it for demos, allowing clicks through is crucial.
-            if self.config.get('behavior', 'fade') == 'persist':
-                self.setAttribute(Qt.WA_TransparentForMouseEvents)
+            # Close immediately upon releasing the mouse
+            self.close()
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
